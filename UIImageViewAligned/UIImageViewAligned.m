@@ -70,7 +70,9 @@
 
 - (UIImage*)image
 {
-    return _realImageView.image;
+//    return _realImageView.image;
+    // disable image property, since it will cause supe view's image drawing in iOS 7
+    return nil;
 }
 
 - (void)setImage:(UIImage *)image
@@ -122,7 +124,7 @@
 {
     CGSize size = self.bounds.size;
 
-    if (self.image == nil)
+    if (_realImageView.image == nil)
         return size;
 
     switch (self.contentMode)
